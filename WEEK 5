@@ -1,0 +1,15 @@
+ sysuse nlsw88.dta
+tab race
+tab race, nolabel
+drop if race==3
+ edit
+tab race
+ ttest wage, by(race)
+describe
+ ttest ttl_exp, by(race)
+ mean ttl_exp
+db ttest
+ ttest wage, by(race)
+db regress
+ regress race ttl_exp wage
+ log close
