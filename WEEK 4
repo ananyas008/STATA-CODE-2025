@@ -1,0 +1,16 @@
+ import excel "C:\Users\hp\OneDrive\Desktop\STATA ASSIGNMENT\haryana_data A4.xlsx", sheet("Sheet1") firstrow
+ rename ( hv024 hv025 hv045c hv122_03 hv219 hv220 hv226 hv270 sh47 hv115_01 hv271a) (state sector language education gender age cooking level religion status income)
+ tab sector
+tab sector gender
+ tab cooking sector
+ tab cooking sector, row
+tab cooking sector, col
+ tab cooking sector, cell
+tab  sector cooking, cell
+ tab  sector cooking, row
+ tab  sector cooking, col
+ tab  sector cooking, cell
+ encode sector, gen(sector1)
+ edit
+ encode level, gen(level1)
+table sector1 level1, stat(mean income)
