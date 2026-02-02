@@ -40,3 +40,13 @@ data23<-read.csv("TASK 1.csv")
 age<-data23$age #representing age separately from data
 grade<-data23$grade
 plot(age,grade)
+
+install.packages("ggplot2") #download ggplot2
+library(ggplot2) #call a package
+x<-1:26
+y<-log(x)
+today<-data.frame(x,y)   #creating a diagram
+plot(x,y)
+p1<-ggplot(data=today)  # creating ggplot
+p1<-p1+(mapping=aes(x=x,y=y)) #doing aesthetic mapping, basically giving the axis x shown on x axis vise versa and + is used as pi was already created like a blank canvas and i am just adding axis to p1
+p1<-p1+geom_point()
