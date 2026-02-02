@@ -1,0 +1,29 @@
+TASK 9
+install.packages("rayshader") 
+library(rayshader) #required to convert ggplot to 3d 
+install.packages("av")
+library(av) #required to save and play gif, movie(mp4) or snapshot
+gpa<-c(8.8,5.2,3.9,6.1,9.2,7.7)
+attn<-c(90,45,40,81,95,80)
+stud<-c(5.5,4,2,3,6,5)
+student_data<-data.frame(gpa,attn,stud) 
+setwd("C:\\Users\\hp\\OneDrive\\Desktop\\R")
+library(ggplot2)
+library(rayshader)
+library(av)
+p1<-ggplot(data=student_data) gg object with data=student_data
+p1<-p1+aes(x=attn,y=gpa,color=stud) 
+p1<-p1+geom_point(size=3)+scale_color_gradient(low="pink",high="purple") #color according to continous variable and  
+p1<-plot_gg(p1)
+p1<-render_movie("plot1.gif")
+TASK 10
+setwd("C:\\Users\\hp\\OneDrive\\Desktop\\R")
+data<-read.csv("export_data.csv")
+library(ggplot2)
+library(gganimate)
+library(gifski)
+library(rayshader)
+library(av)
+p<-ggplot(data)
+p<-p+aes(x=cpi,y=exports,color=export_analysis)
+p<-p+geom_point(size=3)
