@@ -1,0 +1,37 @@
+TASK 7
+x<-1:16
+y<-x^2
+year<-1990:2005
+data2<-data.frame(y,year)
+library(ggplot2)
+library(gganimate)
+library(gifski)
+p<-ggplot(data=data2)
+p<-p+aes(x=year,y=y)
+p<-p+geom_line(linewidth=4,aes(color=y)) #changes the width and color of line and also using line with geom is used to make a line graph 
+p_animate<-p+transition_reveal(year) 
+animate(p_animate,renderer=gifski_renderer(loop=FALSE))
+rm(list=ls())
+
+setwd("C:/Users/hp/OneDrive/Desktop/R")
+task<-read.csv("india_data.csv")
+task$year<-NULL
+task$year<-1990:2024
+library(ggplot2)
+library(gganimate)
+library(gifski)
+p<-ggplot(data=task)
+p<-p+aes(x=year,y=gdp.growth)
+TASK 8 
+setwd("C:/Users/hp/OneDrive/Desktop/R")
+task<-read.csv("india_data.csv")
+task$year<-NULL
+task$year<-1990:2024
+library(ggplot2)
+library(gganimate)
+library(gifski)
+p<-ggplot(data=task)
+p<-p+aes(x=year,y=gdp.growth)
+p<-p+geom_line(linewidth=4,aes(color=gdp.growth))
+p_animate<-p+transition_reveal(year)
+animate(p_animate,renderer=gifski_renderer())
