@@ -1,0 +1,73 @@
+TASK 11 
+#loop in R(for,while,repeat)
+#for 
+for(x in 1:5){print(x)} #writing 1 to 5
+for(x in 1:5){print(paste("i have",x))} #to paste i have 1,2,3,4,5
+a<-c(5,6,7,8,9)
+for(x in a){print(x)} 
+
+#if condition
+#if(condition){"result1"}else{"result2"}
+a<-c(5,6,7,8,9)
+b<-c()
+for(x in a){
+if(x<=7){
+b<-c(b,"h")}
+else{
+b<-c(b,"l")
+}
+}
+rm(list=ls())
+a<-c(5,4,1,0,9,3,7)
+b<-c()
+for(x in a){
+if(x<=3){
+b<-c(b,"l")
+}else{
+if(x<=6){
+b<-c(b,"m")
+}else{
+b<-c(b,"h")
+}
+}
+}
+
+rm(list=ls())
+a<-c(0,1,2,3,4,5,6,7,8,9,10)
+b<-c()
+for(x in a){
+if(x<=2){
+b<-c(b,"l")
+}else{
+if(x<=5){
+b<-c(b,"m")
+}else{
+if(x<=8){
+b<-c(b,"h")
+}else{
+b<-c(b,"o")
+}
+}
+}
+}
+TASK 12
+a<-c(1,3,4,6,7,8)
+a[5] #finds the 5th observation
+a[2:5]#observation from 2 to 5
+length(a)#to find no. of observations
+b<-c("a","b","c","d","e","f") 
+data<-data.frame(a,b)
+data
+data$b[5] #to find 5th observation in b data frame 
+data$b[5]<-"g" #to change 5th observation from e to g 
+nrow(data)
+
+#print seq from 1:20
+for(ananya in 1:20){
+print(ananya)
+}
+#print 1am, 2am, 3am, up to 12am
+for(x in 1:12){
+print(paste(x,"am"))
+}
+gdp<-c(3,5,6,7,8,9,2,4) 
