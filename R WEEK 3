@@ -1,0 +1,31 @@
+TASK 4
+x<-1:26
+y<-log(x)
+z<-letters[1:26]
+today<-data.frame(x,y,z)
+install.packages("gganimate")
+library(ggplot2)
+library(gganimate)
+install.packages("gifski")
+library(gifski)
+p<-ggplot(data=today)  #step 1 object of graph
+p<-p+aes(x=x, y=y)
+p<-p+geom_point(size=4, alpha=0.5) # alpha shows transparency 
+ani_p<-p+transition_manual(x, cumulative=FALSE) #step 2 animation: transition along x axis and one time only one point is visible because cumulative = false 
+animate(ani_p,renderer=gifski_renderer()) #step 3 display 
+ani_p<-p+transition_manual(x, cumulative=TRUE)# all the points will be visible together 
+animate(ani_p,renderer=gifski_renderer()) 
+p<-p+geom_point(size=x, alpha=0.5)#bubble plot: when the size of scatter increases with any variable 
+
+TASK 5
+setwd("C:/Users/hp/OneDrive/Desktop/R")# questions from the data create a bubble plot using x axis as inflation and y axis as gdp and population as scatter plot 
+data1<-read.csv("gdp_inf_pop.csv") #set directory 
+library(ggplot2)# call a package 
+library(gganimate)
+library(gifski)
+p<-ggplot(data=data1) # create a object 
+p<-p+aes(x=inflation, y=gdp) #create the axis 
+population<-data1$population #create population as an objective 
+p<-p+geom_point(size=population, alpha=0.5)#display the graph 
+ani_p<-p+transition_manual(inflation, cumulative=TRUE)#true represents moving of the scatters 
+animate(ani_p,renderer=gifski_renderer())#animated figure or gif creation
