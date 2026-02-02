@@ -1,0 +1,36 @@
+TASK 6
+x<-c(19,16,18,20,21)
+edit(x)
+y<-c(120,131,123,100,80)
+z<-c("m","f","f","m","f")
+data1<-data.frame(age=x,income=y,gender=z)
+fix(data1)
+library(ggplot2)
+p1<-ggplot(data=data1) #create a canvas 
+p1<-p1+aes(x=age,y=income)#labelig of x and y axis as age and income
+p1<-p1+geom_point(size=10, alpha=0.1)#create a scatter plot with size 10 and alpha(transparency) 0.1
+p1<-p1+geom_text(aes(label=gender))#give labelling to the plotted points as male and female 
+p1<-p1+geom_text(aes(label=gender),position="jitter")#jitter means radomly put points or give labeling outside the point 
+p1<-p1+geom_text(aes(label=gender),position="nudge") #means particularly put points 
+p1<-ggplot(data=data1)
+p1<-p1+aes(x=age,y=income,color=age)
+p1<-p1+geom_point(size=6,pch=2)#pch is used to change the shape of points like triangle, c, r according to the number 
+
+p1<-p1+geom_text(aes(label=gender),position=position_nudge(x=-1)) #means particularly put points 
+
+
+rm(list=ls())
+occupation<-c("A","A","A","B","B","C","C") #creating objective: occupation,income,gender,experience 
+experience<-c(3,4,2.5,2,6,3,2)
+income<-c(110,100,80,90,120,100,90)
+gender<-c("M","F","F","M","F","M","F")
+data2<-data.frame(occupation,experience,income,gender) #creating data frame 
+library(ggplot2)#call for package
+p2<-ggplot(data=data2)#create canvas 
+p2<-p2+aes(x=experience,y=income)# create axis 
+p2<-p2+geom_point(size=10,alpha=0.1)#create size and tranparency
+p2<-p2+geom_text(aes(label=occupation))#label points as occupation
+p3<-ggplot(data=data2)
+p3<-p3+aes(x=experience,y=income)
+p3<-p3+geom_point(size=10, alpha=0.9)
+p3<-p3+aes(x=experience,y=income,color=gender)#color of points changes according to gender 
