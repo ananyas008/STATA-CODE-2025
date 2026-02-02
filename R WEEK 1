@@ -1,0 +1,21 @@
+x<-5
+x
+6->y
+y
+z<-1:100
+z
+n<-seq(1,100,5)
+a<-seq(5,800,100)
+ls()
+rm(list=ls())
+ls()
+x<-c(1,2,5,7) #assigning various values of x using c combine command 
+y<-c("a","b","c","d","e")
+m<-matrix(c(1,2,3,4),nrow=2)  #assigning matrix to x also ncol denotes number of columns
+k<-matrix(c(5,10,9,6,3,4,2,0,11),ncol=3,nrow=3)
+p<-matrix(c(20,30,40,12,9,6),ncol=2,nrow=3)
+p1<-t(p)  #transpose using t
+f<-function(x)(x^2)  #using function command 
+a<--10:10
+b<-f(a)  #squared all oservations from -10 to 10
+
